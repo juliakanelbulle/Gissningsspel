@@ -1,0 +1,42 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Random cookie = new Random();
+		
+		int winNumb = cookie.Next(1,101);
+		
+		bool winning = false;
+		
+		int guesses = 0;
+		
+		do
+		{
+			Console.WriteLine("Guess a number between 1 and 100");
+			string input = Console.ReadLine();
+			int number = int.Parse(input);
+			
+			if (number > winNumb)
+				{
+				Console.WriteLine("That's to high, try again...");
+				}
+			
+			else if (number < winNumb)
+				{
+				Console.WriteLine("That's to low, try again...");
+				}
+			
+			else if (number == winNumb)
+				{
+				Console.WriteLine("That is correct, good job!!");
+				winning = true;
+				}
+			guesses++;
+			
+		} 
+		while (!winning);
+		Console.WriteLine("Number of guesses: " + guesses);		
+	}
+}
